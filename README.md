@@ -12,7 +12,7 @@ An enterprise-grade, deterministic, and idempotent automated video generation an
 
 ## 🎬 Demo & Visual Walkthrough
 
-> 📺 **Demo Video:** You can preview or download the walkthrough video directly from the repository root: [`demo.mp4`](demo.mp4).
+https://github.com/user-attachments/assets/a8adaaef-112f-429d-a13a-6728bc02965b
 
 ---
 

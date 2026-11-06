@@ -12,7 +12,7 @@ Kurumsal düzeyde, deterministik ve idempotent çalışan otonom video üretim v
 
 ## 🎬 Demo ve Görsel Önizleme
 
-> 📺 **Demo Videosu:** Depo kök dizinindeki [`demo.mp4`](demo.mp4) dosyasını doğrudan izleyebilir veya indirebilirsiniz.
+https://github.com/user-attachments/assets/a8adaaef-112f-429d-a13a-6728bc02965b
 
 ---
 
