@@ -12,11 +12,17 @@ An enterprise-grade, deterministic, and idempotent automated video generation an
 
 ## 🎬 Demo & Visual Walkthrough
 
-<p align="center">
-  <video src="demo.mp4" controls="controls" width="850" muted="muted">
-    Your browser does not support the video tag.
-  </video>
-</p>
+> 📺 **Demo Video:** You can preview or download the walkthrough video directly from the repository root: [`demo.mp4`](demo.mp4).
+
+---
+
+## 🔒 Project Status & Showcase Notice
+
+This repository serves as a **public showcase and architectural portfolio** for an enterprise video production engine originally developed as a private production system.
+
+- **Source Code Privacy:** Core execution engines, proprietary business rules, and generative pipeline scripts are maintained in a private repository.
+- **Security & Secrets:** All live production tokens, OAuth client credentials, and cloud API keys are strictly excluded from public distribution.
+- **Inquiries & Collaboration:** For architectural inquiries, live demos, or technical collaborations, please reach out via GitHub profile channels.
 
 ---
 
@@ -175,61 +181,12 @@ production_pipeline/
 
 ---
 
-## 🚀 Developer Guide
+## 🛠️ Architecture & Engineering Highlights
 
-### Prerequisites
-- **Python 3.10+**
-- **FFmpeg & FFprobe** installed and accessible in the system environment `PATH`
-- Target API keys configured in `.env` (OpenAI, Pixabay, Gemini optional)
-
-### Quick Start
-
-1. **Clone the Repository:**
-   ```bash
-   git clone https://github.com/your-username/production_pipeline.git
-   cd production_pipeline
-   ```
-
-2. **Set Up Python Virtual Environment:**
-   ```bash
-   python -m venv .venv
-   # Windows:
-   .venv\Scripts\activate
-   # Linux/macOS:
-   source .venv/bin/activate
-   ```
-
-3. **Install Dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Configure Environment:**
-   ```bash
-   cp .env.example .env
-   # Populate OPENAI_API_KEY, PIXABAY_API_KEY, and optional TTS keys
-   ```
-
-5. **Run the Application:**
-   ```bash
-   # Launch Desktop GUI:
-   python run.py
-
-   # Or trigger individual modules via CLI:
-   python -m production_pipeline.run
-   ```
-
-### Quality Assurance & Validation Test Suite
-Verify architecture integrity, schema validity, and state machine idempotency with the built-in QA suite:
-
-```bash
-# Verify syntax across all modules
-python -m compileall -q production_pipeline
-
-# Execute automated QA validation
-python qa_runner.py
-python qa_validate.py
-```
+- **Modular Design:** Strictly isolated domains aligned with Clean Architecture principles (LLM, TTS, Saliency CV, OAuth Publishing).
+- **Resilience Engineering:** Multi-tier provider fallbacks across all critical external dependencies.
+- **Zero-Trust Credential Isolation:** Strict token quarantining with regex-based runtime log scrubbing.
+- **Automated Validation:** FFprobe stream verification and QA sanity checks ensuring AV synchronization.
 
 ---
 

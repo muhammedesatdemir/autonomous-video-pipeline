@@ -12,17 +12,21 @@ Kurumsal düzeyde, deterministik ve idempotent çalışan otonom video üretim v
 
 ## 🎬 Demo ve Görsel Önizleme
 
-<p align="center">
-  <video src="demo.mp4" controls="controls" width="850" muted="muted">
-    Tarayıcınız video etiketini desteklemiyor.
-  </video>
-</p>
+> 📺 **Demo Videosu:** Depo kök dizinindeki [`demo.mp4`](demo.mp4) dosyasını doğrudan izleyebilir veya indirebilirsiniz.
 
 ---
 
-## 📐 Sistem Mimarisi
+## 🔒 Proje Durumu ve Gizlilik Bildirimi
 
-Pipeline, modüler **Clean Architecture** ve **Pipes-and-Filters** tasarım desenlerini benimser. Her operasyonel katman (LLM senaryo üretimi, çok sağlayıcılı TTS, kaynak-havuzlu stok seçimi, bilgisayarlı görü ile kadrajlama, kalite kontrol ve çok kanallı OAuth yayınlama) bağımsız arayüzler arkasında izole edilmiş ve idempotent bir durum makinesiyle koordine edilmiştir.
+Bu depo, özel (**private**) olarak geliştirilen ana üretim sisteminin mimari tasarımını, teknik kabiliyetlerini ve yeteneklerini sergilemek amacıyla hazırlanmış bir **Public Showcase / Portfolio** sürümüdür.
+
+- **Kaynak Kod Gizliliği:** Çekirdek üretim motoru, ticari algoritmalar ve hassas operasyonel iş kuralları gizli (özel) repoda muhafaza edilmektedir.
+- **Güvenlik & Sırlar:** Canlı kanallara ait kimlik bilgileri, OAuth token'ları ve API anahtarları açık kaynak kod tabanında yer almaz.
+- **İletişim & İş Birliği:** Sistemin canlı demonstrasyonu, mimari detayları veya iş birliği talepleri için repo sahibi ile iletişime geçebilirsiniz.
+
+---
+
+## 📐 Sistem Mimarisi ve **Pipes-and-Filters** tasarım desenlerini benimser. Her operasyonel katman (LLM senaryo üretimi, çok sağlayıcılı TTS, kaynak-havuzlu stok seçimi, bilgisayarlı görü ile kadrajlama, kalite kontrol ve çok kanallı OAuth yayınlama) bağımsız arayüzler arkasında izole edilmiş ve idempotent bir durum makinesiyle koordine edilmiştir.
 
 ```mermaid
 flowchart TD
@@ -173,61 +177,12 @@ production_pipeline/
 
 ---
 
-## 🚀 Geliştirici Kılavuzu
+## 🛠️ Mimari & Mühendislik Yaklaşımı
 
-### Gereksinimler
-- **Python 3.10+**
-- Sistem `PATH` yoluna eklenmiş **FFmpeg & FFprobe**
-- `.env` dosyası içinde tanımlı geçerli API anahtarları
-
-### Hızlı Kurulum
-
-1. **Repoyu Klonlayın:**
-   ```bash
-   git clone https://github.com/kullanici-adi/production_pipeline.git
-   cd production_pipeline
-   ```
-
-2. **Sanal Ortamı Hazırlayın:**
-   ```bash
-   python -m venv .venv
-   # Windows:
-   .venv\Scripts\activate
-   # Linux/macOS:
-   source .venv/bin/activate
-   ```
-
-3. **Bağımlılıkları Yükleyin:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Çevre Değişkenlerini Tanımlayın:**
-   ```bash
-   cp .env.example .env
-   # OPENAI_API_KEY ve PIXABAY_API_KEY alanlarını doldurun
-   ```
-
-5. **Uygulamayı Çalıştırın:**
-   ```bash
-   # Masaüstü Grafik Arayüzü:
-   python run.py
-
-   # Veya modül olarak CLI üzerinden:
-   python -m production_pipeline.run
-   ```
-
-### Kalite Kontrol ve Doğrulama Testleri
-Mimari bütünlüğü, şema geçerliliğini ve durum makinesi kararlılığını test etmek için:
-
-```bash
-# Kod sözdizimi doğrulaması
-python -m compileall -q production_pipeline
-
-# Otomatik QA doğrulama paketleri
-python qa_runner.py
-python qa_validate.py
-```
+- **Modüler Tasarım:** Clean Architecture prensipleriyle ayrıştırılmış katmanlar (LLM, TTS, CV, Upload).
+- **Hata Toleransı (Resilience):** Her harici serviste yedekli (fallback) sağlayıcı mekanizması.
+- **Güvenli Kimlik Yönetimi:** Çift katmanlı yetki izolasyonu ve regex tabanlı log temizleme filtresi.
+- **Doğrulama ve QA:** FFprobe destekli ses/görüntü senkron denetimi ve otomatik doğrulama katmanı.
 
 ---
 
